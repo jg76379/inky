@@ -302,11 +302,7 @@ class Inky:
 
     def _busy_wait(self, timeout=15.0):
         """Wait for busy/wait pin."""
-        t_start = time.time()
-        while not self._gpio.input(self.busy_pin):
-            time.sleep(0.01)
-            if time.time() - t_start >= timeout:
-                raise RuntimeError("Timeout waiting for busy signal to clear.")
+        time.sleep(1)
 
     def _update(self, buf, busy_wait=True):
         """Update display.
